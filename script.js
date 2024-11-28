@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       penny: 1,
     };
 
-    const numberOfCoins = cents / coinValues[coinType];
+    const numberOfCoins = Math.ceil(cents / coinValues[coinType]);
 
     coinDiv.innerHTML = "";
     document.getElementById("coinType")
