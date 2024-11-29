@@ -1,23 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html class="bg-gray-900 text-white">
   <head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Money Visualizer</title>
+    <meta charset="UTF-8">
+    <link href="./output.css" rel="stylesheet">
     <script src="script.js"></script>
   </head>
-  <body>
-    <h1>Money Visualizer</h1>
-    <form id="form">
-      <input type="number" />
-      <select id="coinType">
+  <body class="flex flex-col items-center p-6">
+    <h1 class="text-4xl font-bold mb-6">Money Visualizer</h1>
+    
+    <label class="flex items-center mb-4 cursor-pointer">
+      <input type="checkbox" id="advancedToggle" class="mr-2 cursor-pointer">
+      Show Advanced Options
+    </label>
+    
+    <div id="advancedOptions" class="mb-4 p-4 bg-gray-800 rounded w-2/6 max-w-s " style="display: none">
+      <input type="text" id="customName" placeholder="Custom item name" 
+             class="mb-2 p-2 bg-gray-700 rounded w-full text-white">
+      <input type="number" id="customValue" step="0.01" min="0" 
+             placeholder="Cost in dollars" 
+             class="mb-2 p-2 bg-gray-700 rounded w-full text-white">
+      <input type="text" id="customImage" placeholder="Image URL" 
+             class="p-2 bg-gray-700 rounded w-full text-white">
+    </div>
+    
+    <form id="form" class="flex flex-col items-center mb-6 w-full max-w-xs">
+      <input type="number" min="0" step="0.01" required id="dollars" 
+             class="mb-2 p-2 bg-gray-700 rounded w-full text-white">
+      
+      <select id="items" 
+              class="mb-2 p-2 bg-gray-700 rounded w-full text-white">
         <option value="penny">Penny ($0.01)</option>
         <option value="nickel">Nickel ($0.05)</option>
         <option value="dime">Dime ($0.10)</option>
         <option value="quarter">Quarter ($0.25)</option>
+        <option value="taki">Taki ($3.75)</option>
       </select>
-      <button>Visualize</button>
+      
+      <button type="submit" 
+              class="p-2 bg-blue-600 rounded hover:bg-blue-700 text-white w-full">
+        Visualize
+      </button>
     </form>
-    <h3>Huge numbers of coins may crash ur browser!!!</h3>
-    <div id="coins"></div>
+    
+    <h3 class="text-red-500 mb-4 text-center">
+      Huge numbers of coins may crash your browser!!!
+    </h3>
+    
+    <div id="image" class="flex flex-wrap justify-center"></div>
   </body>
 </html>
